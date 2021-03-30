@@ -37,4 +37,4 @@
 
 | Name | Description |
 |------|-------------|
-| <a name="output_aws_vpc"></a> [aws\_vpc](#output\_aws\_vpc) | n/a |
+| <a name="output_aws_vpc"></a> [aws\_vpc](#output\_aws\_vpc) | AWS VPC details |

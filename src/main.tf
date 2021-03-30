@@ -14,6 +14,7 @@ resource "random_id" "id" {
 
 # Create Module using community
 module "aws_vpc" {
+  description = "aws thing"
   source               = "terraform-aws-modules/vpc/aws"
   name                 = format("%s-%s-%s", var.tags.prefix, var.tags.environment, random_id.id.hex)
   cidr                 = var.aws_vpc_parameters.cidr
