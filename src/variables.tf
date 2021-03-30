@@ -1,4 +1,5 @@
 variable "aws_vpc_parameters" {
+  description = "AWS VPC Input Parameters"
   type = object({
     cidr   = string
     region = string
@@ -9,10 +10,8 @@ variable "aws_vpc_parameters" {
   }
 }
 
-/**
-* CIDR offsets
-*/
 variable "cidr_offsets" {
+  description = "VPC CIDR Offsets for C Octet"
   type = object({
     management  = number
     external    = number
@@ -30,6 +29,7 @@ variable "cidr_offsets" {
 }
 
 variable "tags" {
+  description = "AWS Tags"
   type = object({
     prefix      = string
     environment = string

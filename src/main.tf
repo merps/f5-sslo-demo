@@ -28,7 +28,7 @@ module "aws_vpc" {
       cidrsubnet(var.aws_vpc_parameters.cidr, 8, num + var.cidr_offsets.external)
   ]
   public_subnet_tags = {
-    Name        = format("%s-%s-ext", var.tags.prefix, random_id.id.hex)
+    Name        = format("%s-%s-public", var.tags.prefix, random_id.id.hex)
     Terraform   = "true"
     Environment = var.tags.environment
   }
@@ -39,7 +39,7 @@ module "aws_vpc" {
     cidrsubnet(var.aws_vpc_parameters.cidr, 8, num + var.cidr_offsets.internal)
   ]
   private_subnet_tags = {
-    Name        = format("%s-%s-int", var.tags.prefix, random_id.id.hex)
+    Name        = format("%s-%s-private", var.tags.prefix, random_id.id.hex)
     Terraform   = "true"
     Environment = var.tags.environment
   }
@@ -55,7 +55,7 @@ module "aws_vpc" {
   create_database_subnet_route_table     = true
   create_database_internet_gateway_route = true
   database_subnet_tags = {
-    Name        = format("%s-%s-inspec-out", var.tags.prefix, random_id.id.hex)
+    Name        = format("%s-%s-mgmt", var.tags.prefix, random_id.id.hex)
     Terraform   = "true"
     Environment = var.tags.environment
   }
@@ -66,7 +66,7 @@ module "aws_vpc" {
     cidrsubnet(var.aws_vpc_parameters.cidr, 8, num + var.cidr_offsets.inspect_in)
   ]
   intra_subnet_tags = {
-    Name        = format("%s-%s-inspec-in", var.tags.prefix, random_id.id.hex, )
+    Name        = format("%s-%s-sslo-in", var.tags.prefix, random_id.id.hex, )
     Terraform   = "true"
     Environment = var.tags.environment
   }
@@ -77,7 +77,7 @@ module "aws_vpc" {
     cidrsubnet(var.aws_vpc_parameters.cidr, 8, num + var.cidr_offsets.inspect_out)
   ]
   elasticache_subnet_tags = {
-    Name        = format("%s-%s-inspec-out", var.tags.prefix, random_id.id.hex)
+    Name        = format("%s-%s-sslo-out", var.tags.prefix, random_id.id.hex)
     Terraform   = "true"
     Environment = var.tags.environment
   }
