@@ -23,6 +23,7 @@ resource "random_password" "password" {
 resource "aws_secretsmanager_secret" "bigiq" {
   name = format("%s-secret-%s", var.tags.prefix, random_id.id.hex)
 }
+
 resource "aws_secretsmanager_secret_version" "bigiq-pwd" {
   secret_id     = aws_secretsmanager_secret.bigiq.id
   secret_string = random_password.password.result
@@ -30,7 +31,6 @@ resource "aws_secretsmanager_secret_version" "bigiq-pwd" {
 
 # Create Module using community
 module "aws_vpc" {
-  description          = "aws thing"
   source               = "terraform-aws-modules/vpc/aws"
   name                 = format("%s-%s-%s", var.tags.prefix, var.tags.environment, random_id.id.hex)
   cidr                 = var.aws_vpc_parameters.cidr
@@ -83,7 +83,7 @@ module "aws_vpc" {
     cidrsubnet(var.aws_vpc_parameters.cidr, 8, num + var.cidr_offsets.inspect_in)
   ]
   intra_subnet_tags = {
-    Name        = format("%s-%s-sslo-in", var.tags.prefix, random_id.id.hex, )
+    Name        = format("%s-%s-sslo-in", var.tags.prefix, random_id.id.hex)
     Terraform   = "true"
     Environment = var.tags.environment
   }
@@ -100,15 +100,18 @@ module "aws_vpc" {
   }
 }
 
-module "big-iq" {
+module "big_iq_byol" {
   source = "github.com/merps/terraform-aws-bigiq"
-  admin_password = ""
-  aws_secretmanager_secret_id = ""
-  cm_license_keys = []
-  dcd_license_keys = []
-  ec2_key_name = ""
-  mgmt_subnet_security_group_ids = []
-  private_subnet_security_group_ids = []
-  vpc_mgmt_subnet_ids = []
-  vpc_private_subnet_ids = []
+  aws_secretmanager_secret_id = aws_secretsmanager_secret.bigiq.id
+  cm_license_keys = [ "XLMOA-EMNVCL-SXY-KNRJJNN-JCBIZOM" ]
+  ec2_key_name = "mjk-f5cs-apse2.pem"
+  vpc_id = module.aws_vpc.vpc_id
 }
+
+/*
+module "big_ip_sslo_payg" {
+  source = "github.com/merps/terraform-aws-bigip"
+  aws_secretmanager_secret_id = ""
+  ec2_key_name = ""
+}
+*/
