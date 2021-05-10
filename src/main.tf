@@ -106,6 +106,8 @@ module "big_iq_byol" {
   cm_license_keys = [ "XLMOA-EMNVCL-SXY-KNRJJNN-JCBIZOM" ]
   ec2_key_name = "mjk-f5cs-apse2.pem"
   vpc_id = module.aws_vpc.vpc_id
+  vpc_mgmt_subnet_ids = module.aws_vpc.database_subnets
+  vpc_private_subnet_ids = module.aws_vpc.private_subnets
 }
 
 /*
