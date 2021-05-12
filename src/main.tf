@@ -100,16 +100,18 @@ module "aws_vpc" {
   }
 }
 
+# Provision BIG-IQ (CM/DCD) for use within demo
 module "big_iq_byol" {
   source = "github.com/merps/terraform-aws-bigiq"
   aws_secretmanager_secret_id = aws_secretsmanager_secret.bigiq.id
-  cm_license_keys = [ "XLMOA-EMNVCL-SXY-KNRJJNN-JCBIZOM" ]
-  ec2_key_name = "mjk-f5cs-apse2.pem"
+  cm_license_keys = [ var.licenses.cm_key ]
+  ec2_key_name = var.ec2_public_key
   vpc_id = module.aws_vpc.vpc_id
   vpc_mgmt_subnet_ids = module.aws_vpc.database_subnets
   vpc_private_subnet_ids = module.aws_vpc.private_subnets
 }
 
+# Provision BIG-IP for the use of SSLO and BIG-IQ
 /*
 module "big_ip_sslo_payg" {
   source = "github.com/merps/terraform-aws-bigip"

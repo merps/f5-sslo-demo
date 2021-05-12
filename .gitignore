@@ -8,6 +8,10 @@
 .AppleDouble
 .LSOverride
 
+# git files
+.gitignore
+.pre-commit-config.yaml
+
 # local keys
 *.pem
 

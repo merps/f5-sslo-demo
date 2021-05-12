@@ -39,3 +39,15 @@ variable "tags" {
     environment = "demo"
   }
 }
+
+variable "licenses" {
+  description = "BIQ-IQ (CM/DCD) License Keys"
+  type = object({
+    cm_key = string
+    dcd_key = string
+  })
+}
+
+variable "ec2_public_key" {
+  description = "EC2 Keypair for provisioning"
+}
