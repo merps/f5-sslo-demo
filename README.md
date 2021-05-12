@@ -11,6 +11,7 @@ This document covers the initial setup and configuration of the AWS BIG-IQ/BIG-I
 - [Background](#background)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+  - [SSLO](#SSLO)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
@@ -24,9 +25,9 @@ This F5 AWS BIG-IP Demo exposes both the BIG-IP & BIG-IQ management interfaces w
 ## Background
 
 This example comes about based on previous work from F5 Development & Field, to provide automation examples leveraging
-BIG-IQ Cloud Edition and BIG-IQ VE's Inline Tap deployment model.
+BIG-IQ Cloud Edition and BIG-IQ VE's Inline Tap deployment model.  
 
-## Additional Resources
+### Additional Resources
 
 To deploy the Terraform example both BIG-IQ and BIG-IP trial licenses are required.  To do this,
 go to [F5 Trial](https://f5.com/products/trials/product-trials) and;
@@ -57,9 +58,19 @@ To support this deployment pattern the following components are required:
 
 ## Installation 
 
+This deployment example uses the following external community modules for Terraform;
+
+* [AWS-VPC](https://github.com/terraform-aws-modules/terraform-aws-vpc)
+* [F5 BIG-IQ](https://github.com/merps/terraform-aws-bigiq)
+* [F5 BIG-IP](https://github.com/merps/terraform-aws-bigip)
+
+The deployment pattern that is covered in this example of F5 SSLO Automation is as follows;
+
 ![](images/aws-tap-deploy.png)
 
-### *BIG-IQ, BIG-IP and AWS Infrastructure*
+### *SSLO*
+
+To deploy the SSLO example;
 
 ***a)*** First, clone the repo:
 ```
@@ -108,9 +119,16 @@ recommended to perform a `terraform destroy` to not incur excessive usage costs 
 This deployment also covers the provisioning of the additional F5 prerequisite components so required for 
 deployment example covered in the [F5 SSLO Demo](https://github.com/merps/f5-sslo-demo)
 
+
 ### Configuration
 
-The example configuration for this deployment demonstration is as follows:
+This example deployment, when successfully, will deploy an example inline tap of BIG-IP SSLO within and inspection/tap layer
+leveraging BIG-IQ Centralised Manager.
+
+Further resources on both BIG-IQ and BIG-IP, including an extensive lab guide, are found at these locations:
+* [F5 SSL Orchestrator Training Labs](https://clouddocs.f5.com/training/community/sslviz/html/)
+* [Knowledge Center/BIG-IQ/Managing SSL Orchestrator Using BIG-IQ](https://techdocs.f5.com/en-us/bigiq-8-0-0/managing-sslo-big-iq.html) 
+
 
 ## TODO
 
@@ -132,7 +150,7 @@ If you find an issue, we would love to hear about it. You have a choice when it 
 
 - Use the [Issues link](https://github.com/f5devcentral/f5-sslo-demo/issues) on the GitHub menu bar in this repository for items such as enhancement or feature requests and non-urgent bug fixes. Tell us as much as you can about what you found and how you found it.
 
-### ChangeLog
+## ChangeLog
 
 
 ## License
