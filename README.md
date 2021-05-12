@@ -68,7 +68,7 @@ The deployment pattern that is covered in this example of F5 SSLO Automation is 
 
 ![](../images/transparent-proxy.png)
 
-### *SSLO*
+### *SSLO Deployment*
 
 To deploy the SSLO example;
 
