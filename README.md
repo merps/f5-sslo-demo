@@ -66,7 +66,7 @@ This deployment example uses the following external community modules for Terraf
 
 The deployment pattern that is covered in this example of F5 SSLO Automation is as follows;
 
-![](images/transparent-proxy.png)
+![](../images/transparent-proxy.png)
 
 ### *SSLO*
 
