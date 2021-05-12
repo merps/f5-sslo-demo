@@ -11,7 +11,7 @@ This document covers the initial setup and configuration of the AWS BIG-IQ/BIG-I
 - [Background](#background)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-  - [SSLO](#SSLO)
+  - [SSLO](#sslo-deployment)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
 - [License](#license)
