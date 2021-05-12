@@ -25,7 +25,7 @@ This F5 AWS BIG-IP Demo exposes both the BIG-IP & BIG-IQ management interfaces w
 ## Background
 
 This example comes about based on previous work from F5 Development & Field, to provide automation examples leveraging
-BIG-IQ Cloud Edition and BIG-IQ VE's Inline Tap deployment model.  
+BIG-IQ Cloud Edition and BIG-IQ VE's Transparent-Proxy deployment model.  
 
 ### Additional Resources
 
@@ -66,7 +66,7 @@ This deployment example uses the following external community modules for Terraf
 
 The deployment pattern that is covered in this example of F5 SSLO Automation is as follows;
 
-![](images/aws-tap-deploy.png)
+![](images/transparent-proxy.png)
 
 ### *SSLO*
 
@@ -122,7 +122,7 @@ deployment example covered in the [F5 SSLO Demo](https://github.com/merps/f5-ssl
 
 ### Configuration
 
-This example deployment, when successfully, will deploy an example inline tap of BIG-IP SSLO within and inspection/tap layer
+This example deployment, when successfully, will deploy an example Transparent Proxy deployment of BIG-IP SSLO within AWS
 leveraging BIG-IQ Centralised Manager.
 
 Further resources on both BIG-IQ and BIG-IP, including an extensive lab guide, are found at these locations:
