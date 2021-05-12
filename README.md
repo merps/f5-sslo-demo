@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/github/license/merps/f5-sslo-demo)](LICENSE)
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-This document covers the initial setup and configuration of the AWS BIG-IQ/BIG-IP SSLO demostration deployment.
+This document covers the initial setup and configuration of the AWS BIG-IQ/BIG-IP SSLO demonstration deployment.
 
 ## Table of Contents
 
